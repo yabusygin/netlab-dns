@@ -1,0 +1,12 @@
+name: netlab-dns-service
+services:
+  dns:
+    build: ./build/
+    volumes:
+      - type: bind
+        source: ./hosts
+        target: /etc/dnsmasq.hosts
+    ports:
+      - protocol: udp
+        target: 53
+        published: 53
